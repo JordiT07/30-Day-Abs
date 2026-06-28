@@ -1,1 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#050505" />
+  <title>30 Day Abs</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
+<main class="app">
+
+<section id="home" class="screen active">
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Jordi's Goal</p>
+      <h1>220 → 180 lb</h1>
+    </div>
+    <div class="streak">🔥 <span id="homeStreak">0</span></div>
+  </header>
+
+  <article class="hero">
+    <p class="badge">30 Day Fat Loss + Abs</p>
+    <h2>Day <span id="dayNumber">1</span> Workout</h2>
+    <p>Home workout. No equipment. Built for 5–20 minutes.</p>
+    <button class="primary" id="startBtn">Start Workout</button>
+  </article>
+
+  <section class="card">
+    <div class="card-head">
+      <h3>Today's Exercises</h3>
+      <span id="workoutLength">8 min</span>
+    </div>
+    <div id="todayList" class="list"></div>
+  </section>
+  <section class="grid two">
+    <article class="mini-card">
+      <p>Current</p>
+      <strong id="currentWeight">220</strong>
+      <span>lb</span>
+    </article>
+    <article class="mini-card">
+      <p>Remaining</p>
+      <strong id="remainingWeight">40</strong>
+      <span>lb</span>
+    </article>
+  </section>
+
+  <section class="card">
+    <h3>Daily Nutrition Focus</h3>
+    <p id="dailyTip">Eat protein with every meal and drink water today.</p>
+  </section>
+</section>
+
+<section id="plan" class="screen">
+  <h1>30 Day Plan</h1>
+  <p class="muted">Each week slowly gets harder.</p>
+  <div id="planList" class="card list"></div>
+</section>
+
+<section id="progress" class="screen">
+  <h1>Progress</h1>
+
+  <div class="grid three">
+    <article class="mini-card">
+      <p>Streak</p>
+      <strong id="statStreak">0</strong>
+      <span>days</span>
+    </article>
+
+    <article class="mini-card">
+      <p>Done</p>
+      <strong id="statDone">0</strong>
+      <span>/30</span>
+    </article>
+
+    <article class="mini-card">
+      <p>Minutes</p>
+      <strong id="statMinutes">0</strong>
+      <span>min</span>
+    </article>
+  </div>
+
+  <section class="card">
+    <h3>Goal Progress</h3>
+    <p><span id="percentDone">0%</span> completed</p>
+    <div class="bar">
+      <div id="progressFill"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>Calendar</h3>
+    <div id="calendar" class="calendar"></div>
+  </section>
+</section>
+<section id="nutrition" class="screen">
+  <h1>Nutrition</h1>
+
+  <section class="card">
+    <h3>Your Starting Targets</h3>
+    <p><b>Calories:</b> 2,000–2,300/day</p>
+    <p><b>Protein:</b> 170–200g/day</p>
+    <p><b>Water:</b> 3–4 liters/day</p>
+  </section>
+
+  <section class="card list">
+    <div class="item">
+      <span>🍳</span>
+      <div>
+        <b>Breakfast</b>
+        <p>Eggs, Greek yogurt, fruit, oatmeal.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <span>🍗</span>
+      <div>
+        <b>Lunch</b>
+        <p>Chicken, rice or potatoes, vegetables.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <span>🥩</span>
+      <div>
+        <b>Dinner</b>
+        <p>Lean meat, veggies, carbs you can track.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <span>💧</span>
+      <div>
+        <b>Water</b>
+        <p>Drink water before every meal.</p>
+      </div>
+    </div>
+  </section>
+</section>
+
+<section id="library" class="screen">
+  <h1>Exercise Library</h1>
+  <p class="muted">
+    Video links are blank for now. Add copyright-free video URLs in script.js.
+  </p>
+  <div id="libraryList" class="card list"></div>
+</section>
+
+</main>
+  <section id="player" class="player hidden">
+  <div class="player-top">
+    <button id="closePlayer">×</button>
+    <span id="playerCount">1/5</span>
+  </div>
+
+  <div class="video-box">
+    <video id="exerciseVideo" playsinline muted loop></video>
+
+    <div id="videoFallback" class="fallback">
+      <div class="pulse">▶</div>
+      <p>No video added yet</p>
+      <small>Add a copyright-free MP4 link in script.js</small>
+    </div>
+  </div>
+
+  <h2 id="exerciseName">Crunches</h2>
+  <p id="exerciseHow" class="muted"></p>
+
+  <div class="timer-ring" id="timerRing">
+    <div>
+      <strong id="timerText">40</strong>
+      <span>seconds</span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button id="prevBtn">Prev</button>
+    <button id="pauseBtn">Pause</button>
+    <button id="nextBtn">Next</button>
+  </div>
+
+  <button class="primary" id="finishBtn">Complete Workout</button>
+</section>
+
+<nav class="nav">
+  <button data-screen="home" class="active">⌂<span>Home</span></button>
+  <button data-screen="plan">🏋️<span>Plan</span></button>
+  <button data-screen="progress">📊<span>Stats</span></button>
+  <button data-screen="nutrition">🥗<span>Food</span></button>
+  <button data-screen="library">▶<span>Videos</span></button>
+</nav>
+
+<script src="script.js"></script>
+</body>
+</html>
